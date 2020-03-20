@@ -7,8 +7,10 @@ My Notes on Tensorflow Dev Summit 2020
 - [TensorFlow 2 Performance Profiler](#profiler)
 
 # Notes
-## Scaling Tensorflow data processing with tf.data 
 <a id="scaling-tf-data"></a>
+
+## Scaling Tensorflow data processing with tf.data
+
 Link: [https://youtu.be/n7byMbl2VUQ](https://youtu.be/n7byMbl2VUQ )
 
 ### TLDR:
@@ -97,11 +99,11 @@ dataset = dataset.distribute("<master_address>")
 dataset = dataset.prefetch()
 ```
 
-
+<a id="profiler"></a>
 
 ## TensorFlow 2 Performance Profiler
 
-<a id="profiler"></a>
+
 Link: [https://youtu.be/pXHAQIhhMhI](https://youtu.be/pXHAQIhhMhI)
 
 ### TLDR:
@@ -139,16 +141,16 @@ model.fit(...., callbacks=[tb_callback])
 
 Overview Page
 
-![Overview Page](images\profiler_overview.JPG)
+![Overview Page](images/profiler_overview.JPG)
 
 Input Pipeline Analyzer
 
-![Input Pipeline Analyzer](images\profiler_input_pipeline.JPG)
+![Input Pipeline Analyzer](images/profiler_input_pipeline.JPG)
 
 TensorFlow Stats
 
-![TensorFlow Stats](images\profiler_stats.JPG)
+![TensorFlow Stats](images/profiler_stats.JPG)
 
 Trace Viewer
 
-![Trace Viewer](images\profiler_trace.JPG)
+![Trace Viewer](images/profiler_trace.JPG)
