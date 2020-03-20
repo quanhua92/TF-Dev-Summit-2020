@@ -4,6 +4,7 @@ My Notes on Tensorflow Dev Summit 2020
 # Table of Contents
 
 - [Scaling Tensorflow data processing with tf.data](#scaling-tf-data)
+- [TensorFlow 2 Performance Profiler](#profiler)
 
 # Notes
 ## Scaling Tensorflow data processing with tf.data 
@@ -96,3 +97,58 @@ dataset = dataset.distribute("<master_address>")
 dataset = dataset.prefetch()
 ```
 
+
+
+## TensorFlow 2 Performance Profiler
+
+<a id="profiler"></a>
+Link: [https://youtu.be/pXHAQIhhMhI](https://youtu.be/pXHAQIhhMhI)
+
+### TLDR:
+
+- Use Profiler plugin in Tensorboard to aggregate & analyze the performance.
+- Used extensively inside Google to tune products
+- Tool Set: Overview, Input Pipeline Analyzer, TensorFlow Stats, Trace Viewer
+- Each tool has recommendations for next step: link to other tools or tutorials
+
+### Notes:
+
+Tensorflow 2 Profiler Tool Set:
+
+- Overview Page
+- Input Pipeline Analyzer
+- TensorFlow Stats
+- Trace Viewer
+
+Each tool has recommendations for next step: link to other tools or tutorials
+
+Code:
+
+```python
+import tensorflow as tf
+
+# Create your model & data preprocessing
+
+# Create a TensorBoard callback
+tb_callback = tf.keras.callbacks.TensorBoard(log_dir="...",
+                                            profile_batch='150, 160')
+# 150, 160 means: do profile on from batch 150 to 160
+
+model.fit(...., callbacks=[tb_callback])
+```
+
+Overview Page
+
+![Overview Page](images\profiler_overview.JPG)
+
+Input Pipeline Analyzer
+
+![Input Pipeline Analyzer](images\profiler_input_pipeline.JPG)
+
+TensorFlow Stats
+
+![TensorFlow Stats](images\profiler_stats.JPG)
+
+Trace Viewer
+
+![Trace Viewer](images\profiler_trace.JPG)
