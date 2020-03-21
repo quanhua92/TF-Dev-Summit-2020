@@ -7,6 +7,7 @@ My Notes on Tensorflow Dev Summit 2020
 - [TensorFlow 2 Performance Profiler](#profiler)
 - [Research with TensorFlow](#research)
 - [TensorFlow Hub: Making model discovery easy](#tf-hub)
+- [Collaborative ML with TensorBoard.dev](#tensorboard-dev)
 
 # Notes
 <a id="scaling-tf-data"></a>
@@ -396,7 +397,24 @@ model.add(tf.keras.layers.Dense(16, activation='relu'))
 .....
 ```
 
-
-
 How to publish to Tensorflow Hub: [Tutorial](https://github.com/tensorflow/hub/tree/master/tfhub_dev)
 
+<a id="tensorboard-dev"></a>
+
+## Collaborative ML with TensorBoard.dev
+
+Link: [https://youtu.be/v9a240kjAx4](https://youtu.be/v9a240kjAx4)
+
+### TLDR:
+
+- Enable collaborative ML by making it easy to share experiment results to [TensorBoard.dev](https://tensorboard.dev/)
+
+### Notes:
+
+1. Use TensorBoard as usually.
+
+2. Upload to TensorBoard.dev & share the link
+
+   ```bash
+   tensorboard dev upload --logdir ./logs --name "My latest experiment" -- description "Simple comparison of several hyperparameters"
+   ```
