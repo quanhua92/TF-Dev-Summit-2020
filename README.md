@@ -6,6 +6,7 @@ My Notes on Tensorflow Dev Summit 2020
 - [Scaling Tensorflow data processing with tf.data](#scaling-tf-data)
 - [TensorFlow 2 Performance Profiler](#profiler)
 - [Research with TensorFlow](#research)
+- [TensorFlow Hub: Making model discovery easy](#tf-hub)
 
 # Notes
 <a id="scaling-tf-data"></a>
@@ -343,4 +344,59 @@ rt = tf.gather(embedding_table, rt)
 tf.math.reduce_mean(rt, axis=1)
 # Result has shape (3, 10) which is a Dense Tensor
 ```
+
+
+
+<a id="tf-hub"></a>
+
+## TensorFlow Hub: Making model discovery easy
+
+Link: [https://www.youtube.com/watch?v=3seWxHGnDqM](https://www.youtube.com/watch?v=3seWxHGnDqM)
+
+### TLDR:
+
+- TensorFlow Hub: [https://tfhub.dev/](https://tfhub.dev/)
+- Comprehensive collection of models: Image, Text, Video, Audio
+- Pre-trained models ready for transfer learning & deployable anywhere you want
+- How to publish to Tensorflow Hub: [Tutorial](https://github.com/tensorflow/hub/tree/master/tfhub_dev)
+
+### Notes:
+
+**Example: Style Transfer**
+
+1. Find the model on tfhub: [https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2](https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2)
+2. Use **tensorflow_hub** to download & run the model
+
+````python
+import tensorflow hub as hub
+
+hub_handle = "https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2"
+hub_module = hub.load(hub_handle)
+
+stylized_image = hub_module(tf.constant(content_image), tf.constant(style_image))[0]
+
+tensor_to_image(stylized_image)
+````
+
+
+
+**Example: Text classification**
+
+Link: [tutorials/keras/text_classification_with_hub](https://www.tensorflow.org/tutorials/keras/text_classification_with_hub)
+
+```python
+embedding = "https://tfhub.dev/google/tf2-preview/gnews-swivel-20dim/1"
+hub_layer = hub.KerasLayer(embedding, input_shape=[], 
+                           dtype=tf.string, trainable=True)
+hub_layer(train_examples_batch[:3])
+
+model = tf.keras.Sequential()
+model.add(hub_layer)
+model.add(tf.keras.layers.Dense(16, activation='relu'))
+.....
+```
+
+
+
+How to publish to Tensorflow Hub: [Tutorial](https://github.com/tensorflow/hub/tree/master/tfhub_dev)
 
