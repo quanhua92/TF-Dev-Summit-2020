@@ -8,6 +8,7 @@ My Notes on Tensorflow Dev Summit 2020
 - [Research with TensorFlow](#research)
 - [TensorFlow Hub: Making model discovery easy](#tf-hub)
 - [Collaborative ML with TensorBoard.dev](#tensorboard-dev)
+- [TF 2.x on Kaggle](#kaggle)
 
 # Notes
 <a id="scaling-tf-data"></a>
@@ -418,3 +419,41 @@ Link: [https://youtu.be/v9a240kjAx4](https://youtu.be/v9a240kjAx4)
    ```bash
    tensorboard dev upload --logdir ./logs --name "My latest experiment" -- description "Simple comparison of several hyperparameters"
    ```
+
+<a id="kaggle"></a>
+
+## TF 2.x on Kaggle
+
+Link: [https://youtu.be/IraU2xyAoKc](https://youtu.be/IraU2xyAoKc)
+
+### TLDR:
+
+- Kaggle has some new specific competition for TensorFlow: "TensorFlow 2.0 Question Answering" & "Flower Classification with TPUs"
+- TF 2.1 + Kaggle == easy acceleration: no setup, not provisioning, free TPUs, GPUs
+
+### Notes:
+
+```python
+import tensorflow as tf
+from kaggle_datasets import KaggleDatasets
+
+# Detect hardward, return appropriate distribution strategy
+try:
+    tpu = tf.distribute.cluster_resolver.TPUClusterResolver()
+except ValueError:
+    tpu = None
+    
+if tpu:
+    tf.config.experimental_connect_to_cluster(tpu)
+    tf.tpu.experimental.initialize_tpu_system(tpu)
+    strategy = tf.distribute.experimental.TPUStrategy(tpu)
+else:
+    strategy = tf.distribute.get_strategy()
+    
+with strategy.scope():
+    model = tf.keras.Sequential([...])
+
+model.compile(...)
+
+```
+
