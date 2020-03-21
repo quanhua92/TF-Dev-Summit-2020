@@ -1,5 +1,5 @@
 # TF-Dev-Summit-2020
-My Notes on Tensorflow Dev Summit 2020
+My Notes on [Tensorflow Dev Summit 2020](https://www.youtube.com/playlist?list=PLQY2H8rRoyvzuJw20FG82Lgm2SZjTdIXU)
 
 # Table of Contents
 
