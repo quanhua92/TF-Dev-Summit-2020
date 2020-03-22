@@ -10,6 +10,7 @@ My Notes on [Tensorflow Dev Summit 2020](https://www.youtube.com/playlist?list=P
 - [Collaborative ML with TensorBoard.dev](#tensorboard-dev)
 - [TF 2.x on Kaggle](#kaggle)
 - [Learning to read with Tensorflow and Keras](#learn-to-read)
+- [Making the most of Colab](#colab)
 
 # Notes
 <a id="scaling-tf-data"></a>
@@ -649,3 +650,85 @@ Doing this at Google-scale
 - tf.text
 - KerasBert: cutting edge NLP model
 - TFHub text modules
+
+
+
+<a id="colab"></a>
+
+## Making the most of Colab
+
+### TLDR:
+
+- Top 10 Colab Tricks for TensorFlow Users
+- Introduce to Colab Pro for 10$ / month: faster GPUs, longer runtimes, more memory
+- The free version of Colab is not going away
+
+### Notes:
+
+How does Colab work?
+
+- Pre-warmed VMs
+- Pre-installed packages
+- Resource limits
+
+Top 10 Colab Tricks for TensorFlow Users
+
+**#10: Specify TensorFlow version**
+
+```python
+%tensorflow_version 2.x
+
+# 1.x
+%tensorflow_version 1.x
+```
+
+**#9: Use TensorBoard right in Colab**
+
+```python
+%load_ext tensorboard
+%tensorboard --logdir logs
+```
+
+**#8: TFLite? No problem!**
+
+Train in Colab -> Deploy to mobile
+
+**#7: Use TPUs**
+
+Runtime -> Change runtime type
+
+**#6: Use local runtimes**
+
+Connect -> Connect to local runtime...
+
+**#5: The Colab scratchpad**
+
+Link: [https://colab.research.google.com/notebooks/empty.ipynb](https://colab.research.google.com/notebooks/empty.ipynb)
+
+**#4: Copy data to Colab VMs**
+
+This often results in speedup
+
+**#3: Mind your memory**
+
+The best thing is to not run out of memory at all and mind your memory when you're doing your work to avoid resource limits
+
+**#2: Close tabs when done**
+
+This will help you disconnect to VMs sooner to avoid resource limits
+
+**#1: Only use GPUs when needed**
+
+When you're doing works that doesn't need GPU, just use default runtime CPU and use GPU later.
+
+
+
+Introduce to Colab Pro for 10$ / month: faster GPUs, longer runtimes, more memory
+
+
+
+What's next in Colab:
+
+- The free version of Colab is not going away
+- Send feedback via COlab
+- @googlecolab on Twitter
