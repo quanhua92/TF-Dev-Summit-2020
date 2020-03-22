@@ -11,6 +11,7 @@ My Notes on [Tensorflow Dev Summit 2020](https://www.youtube.com/playlist?list=P
 - [TF 2.x on Kaggle](#kaggle)
 - [Learning to read with Tensorflow and Keras](#learn-to-read)
 - [Making the most of Colab](#colab)
+- [Scaling TensorFlow 2 models to multi-worker GPUs](#multi-worker)
 
 # Notes
 <a id="scaling-tf-data"></a>
@@ -732,3 +733,46 @@ What's next in Colab:
 - The free version of Colab is not going away
 - Send feedback via COlab
 - @googlecolab on Twitter
+
+
+
+<a id="multi-worker"></a>
+
+## Scaling TensorFlow 2 models to multi-worker GPUs
+
+### TLDR:
+
+- Scale out Keras model to multi-machine multi-GPUs
+- Training throughput significantly improved in Tensorflow 2.2
+- Case Study: BERT SQuAD
+
+### Notes:
+
+Case Study: BERT SQuAD
+
+- [BERT: a popular NLP model](https://github.com/tensorflow/models/tree/master/official/nlp/bert)
+- SQuAD: reading comprehension, question & answer task
+
+
+
+![multi_bert](images/multi_bert.JPG)
+
+Multi-worker Synchronous Training
+
+
+
+![multi_sync.JPG](images/multi_sync.JPG)
+
+
+
+Use TensorBoard TraceViewer to investigate performance bottleneck
+
+- Problem: Gradient aggregation time dominates the step time
+
+![multi_trace_view](images/multi_trace_view.JPG)
+
+Solution:
+
+- NCCL Throughput tuning
+- Aggregate gradients in FP16 format
+- Overlap grad aggregation with backprop
