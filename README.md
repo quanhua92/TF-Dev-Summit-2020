@@ -12,6 +12,7 @@ My Notes on [Tensorflow Dev Summit 2020](https://www.youtube.com/playlist?list=P
 - [Learning to read with Tensorflow and Keras](#learn-to-read)
 - [Making the most of Colab](#colab)
 - [Scaling TensorFlow 2 models to multi-worker GPUs](#multi-worker)
+- [TensorFlow.js: ML for the web and beyond](#tfjs)
 
 # Notes
 <a id="scaling-tf-data"></a>
@@ -776,3 +777,85 @@ Solution:
 - NCCL Throughput tuning
 - Aggregate gradients in FP16 format
 - Overlap grad aggregation with backprop
+
+<a id="tfjs"></a>
+
+## TensorFlow.js: ML for the web and beyond
+
+### TLDR:
+
+- TensorFlow.js 2020 new models
+- Convert existing models using Converter Wizard
+- Direct SavedModel support in Node.js
+- New Backend: WASM, WebGPU
+- Node is comparable to Python-based Tensorflow
+
+### Notes:
+
+TensorFlow.js timeline
+
+- 2017: Deeplearn.js released
+- 2018: TF.js released
+  - Models: Mobilenet, Object detection, KNN, Posenet
+  - Platform: Node.js, Data and Vis libraries
+  - Application:  Teachable Machine 1
+- 2019: TF.js 1.0 released
+  - Models: BodyPix, Toxicity, USE, Speech commands
+  - Platform: AutoML for Vision models, Direct SavedModel support in Node.js
+  - Applications: Uber, AirBnb, WeChat, ...
+- 2020: 
+  - Models: Facemesh, Handtrack, MobileBERT
+  - Platform: WebAssembly backend, React Native
+  - Applications: Glitch/Codepen
+- Future:
+  - More language models
+  - Library modularization, TFX, TF.js 2.0
+
+TensorFlow.js
+
+- Run existing models
+  - 11 TF.js models, including 3 new additions
+  - Convert existing models using Converter Wizard
+  - Direct SavedModel support in Node.js
+- Retrain existing models: with transfer learning and AutoML
+- Write models from scratch
+
+**Models: FaceMesh**
+
+- Model Size: Under 3MB
+- Performance:
+  - 15fps on Pixel 3
+  - 35fps on iPhone 11
+  - 40fps on MacBook Pro
+
+**Models: HandPose**
+
+- Model Size: 12MB
+- Performance:
+  - 6fps on Pixel 3
+  - 30fps on iPhone 11
+  - 40fps on MacBook Pro
+
+**Models: MobileBERT**
+
+- Model Size: 100MB
+- Performance:
+  - 100ms
+- Use Cases:
+  - Q&A
+  - Chatbot
+
+Multiple Backends:
+
+- CPU
+- WebGL (GPU-Based)
+- Node
+- **WASM (CPU-based with WebAssembly)**
+- **WebGPU (coming)**
+
+![tf performance](images/tfjs_performance.JPG)
+
+Node is comparable to Python-based Tensorflow
+
+![node](images/tfjs_node.JPG)
+
