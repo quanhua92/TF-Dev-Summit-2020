@@ -467,6 +467,8 @@ model.compile(...)
 
 ## Learning to read with TensorFlow and Keras
 
+Link: [https://youtu.be/aNrqaOAt5P4](https://youtu.be/aNrqaOAt5P4)
+
 ### TLDR:
 
 - Build a sequence-to-sequence model with tensorflow_addons seq2seq to generate text
@@ -662,6 +664,8 @@ Doing this at Google-scale
 
 ## Making the most of Colab
 
+Link: [https://youtu.be/pnClcwTCyc0](https://youtu.be/pnClcwTCyc0)
+
 ### TLDR:
 
 - Top 10 Colab Tricks for TensorFlow Users
@@ -744,6 +748,8 @@ What's next in Colab:
 
 ## Scaling TensorFlow 2 models to multi-worker GPUs
 
+Link: [https://youtu.be/6ovfZW8pepo](https://youtu.be/6ovfZW8pepo)
+
 ### TLDR:
 
 - Scale out Keras model to multi-machine multi-GPUs
@@ -784,6 +790,8 @@ Solution:
 <a id="tfjs"></a>
 
 ## TensorFlow.js: ML for the web and beyond
+
+Link: [https://youtu.be/iH9CS-QYmZs](https://youtu.be/iH9CS-QYmZs)
 
 ### TLDR:
 
@@ -866,6 +874,8 @@ Node is comparable to Python-based Tensorflow
 
 ## TensorFlow Lite: ML for mobile and IoT devices
 
+Link: [https://youtu.be/27Zx-4GOQA8](https://youtu.be/27Zx-4GOQA8)
+
 ### TLDR:
 
 - New Support Library: Android Studio integration, extending Model Metadata
@@ -929,6 +939,8 @@ Expanding Hardware Support:
 
 ## TensorFlow and ML from the trenches: The Innovation Experience Center at JPL
 
+Link: [https://youtu.be/WMsYupTzkKw](https://youtu.be/WMsYupTzkKw)
+
 ### Notes:
 
 Some applications of ML & Tensorflow:
@@ -947,6 +959,8 @@ Porting TensorFlow Models -> TFLite and on Exotic Hardware
 <a id="embedding"></a>
 
 ## Jacquard: Embedding ML seamlessly into everyday objects
+
+Link: [https://youtu.be/JpuJY2nAhrA](https://youtu.be/JpuJY2nAhrA)
 
 ### TLDR:
 
