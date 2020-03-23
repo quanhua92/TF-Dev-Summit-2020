@@ -13,6 +13,7 @@ My Notes on [Tensorflow Dev Summit 2020](https://www.youtube.com/playlist?list=P
 - [Making the most of Colab](#colab)
 - [Scaling TensorFlow 2 models to multi-worker GPUs](#multi-worker)
 - [TensorFlow.js: ML for the web and beyond](#tfjs)
+- [TensorFlow Lite: ML for mobile and IoT devices](#tflite)
 
 # Notes
 <a id="scaling-tf-data"></a>
@@ -859,3 +860,63 @@ Node is comparable to Python-based Tensorflow
 
 ![node](images/tfjs_node.JPG)
 
+<a id="tflite"></a>
+
+## TensorFlow Lite: ML for mobile and IoT devices
+
+### TLDR:
+
+- New Support Library: Android Studio integration, extending Model Metadata
+- Introducing TFLite Model Maker for transfer learning
+- Announcing Core ML Delegation using Apple Neural Engine
+- Tools: Profilers for Android, New TFLite Converter
+- Support microcontrollers, Arduino library
+
+### Notes:
+
+Edge ML Explosion:
+
+- Lower latency
+- Network connectivity
+- Privacy preserving
+
+![tflite_timeline](images/tflite_timeline.JPG)
+
+![tflite_usecase](images/tflite_usecase.JPG)
+
+Support Library: 
+
+- Image + Language APIs Android Studio Integration
+  - Faster & simpler way to get started with TF Lite: drag & drop, automatic generated Java wrapper.
+- Extending **Model Metadata**: model detail, input/output type and label files packed together
+- Introducing **TFLite Model Maker** for transfer learning.
+
+More Pretrained Models via TensorFlow Hub:
+
+- MobileNet, EfficientNet-Lite, MobileBERT, ALBERT-Lite, ...
+
+Improved graph delegation -> more performance
+
+Announcing Core ML Delegation through **Apple Neural Engine**
+
+- Use Core ML to accelerate TensorFlow Lite models
+- 4-14x speedup for floating-point models on Neural Engine
+- Use Apple Neural Engine on A12 SoC & beyond
+- Available in iOS 11 & later
+
+Incredible performance:
+
+![tflite_performance](images/tflite_performance.JPG)
+
+Tooling: Profilers for Android
+
+![tflite_profiler](D:\workspace\TF-Dev-Summit-2020\images\tflite_profiler.JPG)
+
+New Converter
+
+![tflite_converter](images/tflite_converter.JPG)
+
+Expanding Hardware Support:
+
+- Officially launch Arduino library
+- Speech detection in 5 minutes
