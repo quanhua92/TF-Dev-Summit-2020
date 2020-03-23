@@ -14,6 +14,7 @@ My Notes on [Tensorflow Dev Summit 2020](https://www.youtube.com/playlist?list=P
 - [Scaling TensorFlow 2 models to multi-worker GPUs](#multi-worker)
 - [TensorFlow.js: ML for the web and beyond](#tfjs)
 - [TensorFlow Lite: ML for mobile and IoT devices](#tflite)
+- [TensorFlow and ML from the trenches: The Innovation Experience Center at JPL](#jpl)
 
 # Notes
 <a id="scaling-tf-data"></a>
@@ -920,3 +921,24 @@ Expanding Hardware Support:
 
 - Officially launch Arduino library
 - Speech detection in 5 minutes
+
+
+
+<a id="jpl"></a>
+
+## TensorFlow and ML from the trenches: The Innovation Experience Center at JPL
+
+### TLDR:
+
+### Notes:
+
+Some applications of ML & Tensorflow:
+
+- Can we do predictive maintenance on our clean room?
+- Count people automatically
+- Can we make Rovers Smarter? MAARS (machine learning-based analytics for automated rover systems)
+  - Terrain classification
+  - Field test
+  - Auto-generated image captions
+
+Porting TensorFlow Models -> TFLite and on Exotic Hardware
