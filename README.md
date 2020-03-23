@@ -15,6 +15,7 @@ My Notes on [Tensorflow Dev Summit 2020](https://www.youtube.com/playlist?list=P
 - [TensorFlow.js: ML for the web and beyond](#tfjs)
 - [TensorFlow Lite: ML for mobile and IoT devices](#tflite)
 - [TensorFlow and ML from the trenches: The Innovation Experience Center at JPL](#jpl)
+- [Jacquard: Embedding ML seamlessly into everyday objects](#embedding)
 
 # Notes
 <a id="scaling-tf-data"></a>
@@ -928,8 +929,6 @@ Expanding Hardware Support:
 
 ## TensorFlow and ML from the trenches: The Innovation Experience Center at JPL
 
-### TLDR:
-
 ### Notes:
 
 Some applications of ML & Tensorflow:
@@ -942,3 +941,40 @@ Some applications of ML & Tensorflow:
   - Auto-generated image captions
 
 Porting TensorFlow Models -> TFLite and on Exotic Hardware
+
+
+
+<a id="embedding"></a>
+
+## Jacquard: Embedding ML seamlessly into everyday objects
+
+### TLDR:
+
+- Jacquard: a tiny computer that can bring ML model to everyday objects
+- Embedded platforms can have very limited resource: 80KB ROM, 16KB SRAM
+- **C Model Exporter** to run TensorFlow graphs in embedded C with zero dependences
+
+### Notes:
+
+Jacquard: a tiny computer that can be added to everyday objects.
+
+We can run ML on Jacquard via Cortex-M0 processor.
+
+Getting tiny ML models deployed on Jacquard.
+
+- Train high quality ML models that fit on memory-constrained devices: as low as 20KB
+- Deploy model on Jacquard embedded platform: Cortex-M0+ and Cortex-M4F processor
+- Run always-on ambient inference at low power: multi-day use cases.
+
+
+
+Adidas GMR: add tag to shoe to perform activity recognition as the person play
+
+- On Device Memory Constraints: 
+  - 80KB ROM: model weights,  operations, graph and code for API
+  - 16KB SRAM: sensor data buffer, buffer shared across models
+- 'C Model Exporter' to run TensorFlow graphs in embedded C with zero dependences
+
+![](images/embedding_models.JPG)
+
+![](images/embedding_exporter.JPG)
